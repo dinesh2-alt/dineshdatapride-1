@@ -62,7 +62,7 @@
 				"split1us@uk derive(FILENAME = \"UK\") ~> derivedColumn2",
 				"derivedColumn1 aggregate(groupBy(city,",
 				"          {} = ERROR_FUNCTION('')),",
-				"     location_id = SUM(location_id)) ~> aggregate1",
+				"     EMPLOYEECOUNT = count(id)) ~> aggregate1",
 				"aggregate1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
