@@ -14,7 +14,14 @@
 			],
 			"sinks": [
 				{
+					"dataset": {
+						"referenceName": "ds_sink_us",
+						"type": "DatasetReference"
+					},
 					"name": "sink1us"
+				},
+				{
+					"name": "sink1"
 				}
 			],
 			"transformations": [
@@ -41,7 +48,11 @@
 				"split1us@us sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1us"
+				"     skipDuplicateMapOutputs: true) ~> sink1us",
+				"split1us sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
