@@ -47,7 +47,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcecopyingfromblob",
-				"sourcecopyingfromblob split(equals(country, \"us\"),",
+				"sourcecopyingfromblob split(equals(country, \"US\"),",
 				"     disjoint: false) ~> split1us@(us, uk)",
 				"split1us@us sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
