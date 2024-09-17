@@ -14,6 +14,10 @@
 			],
 			"sinks": [
 				{
+					"dataset": {
+						"referenceName": "ds_blob1",
+						"type": "DatasetReference"
+					},
 					"name": "sink1us"
 				},
 				{
@@ -81,6 +85,16 @@
 				"     emploteecount = count(id)) ~> aggregate2",
 				"aggregate1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     input(",
+				"          id as string,",
+				"          location_id as string,",
+				"          address_1 as string,",
+				"          address_2 as string,",
+				"          city as string,",
+				"          state_province as string,",
+				"          postal_code as string,",
+				"          country as string",
+				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1us",
 				"aggregate2 sink(allowSchemaDrift: true,",
