@@ -32,7 +32,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcecopyingfromblob",
-				"sourcecopyingfromblob split(ERROR_FUNCTION(''),",
+				"sourcecopyingfromblob split(equals(country, \"us\"),",
 				"     disjoint: false) ~> split1us@(us, )"
 			]
 		}
