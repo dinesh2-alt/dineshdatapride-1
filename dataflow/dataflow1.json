@@ -14,10 +14,6 @@
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "ds_sink_us",
-						"type": "DatasetReference"
-					},
 					"name": "sink1us"
 				},
 				{
