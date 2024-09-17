@@ -40,6 +40,9 @@
 				},
 				{
 					"name": "aggregate1"
+				},
+				{
+					"name": "aggregate2"
 				}
 			],
 			"scriptLines": [
@@ -62,11 +65,12 @@
 				"split1us@uk derive(FILENAME = \"UK\") ~> derivedColumn2",
 				"derivedColumn1 aggregate(groupBy(city),",
 				"     EMPLOYEECOUNT = count(id)) ~> aggregate1",
+				"derivedColumn2 aggregate(groupBy(city)) ~> aggregate2",
 				"aggregate1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1us",
-				"derivedColumn2 sink(allowSchemaDrift: true,",
+				"aggregate2 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1uk"
