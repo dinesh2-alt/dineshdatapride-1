@@ -5,14 +5,29 @@
 		"typeProperties": {
 			"sources": [
 				{
+					"dataset": {
+						"referenceName": "ds_src_blob",
+						"type": "DatasetReference"
+					},
 					"name": "sourcecopyingfromblob"
 				}
 			],
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
-				"     validateSchema: false) ~> sourcecopyingfromblob"
+				"source(output(",
+				"          id as string,",
+				"          location_id as string,",
+				"          address_1 as string,",
+				"          address_2 as string,",
+				"          city as string,",
+				"          state_province as string,",
+				"          postal_code as string,",
+				"          country as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourcecopyingfromblob"
 			]
 		}
 	}
