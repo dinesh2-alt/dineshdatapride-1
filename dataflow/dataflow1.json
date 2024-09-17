@@ -12,7 +12,11 @@
 					"name": "sourcecopyingfromblob"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"name": "sink1us"
+				}
+			],
 			"transformations": [
 				{
 					"name": "split1us"
@@ -33,7 +37,11 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcecopyingfromblob",
 				"sourcecopyingfromblob split(equals(country, \"us\"),",
-				"     disjoint: false) ~> split1us@(us, )"
+				"     disjoint: false) ~> split1us@(us, )",
+				"split1us@us sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1us"
 			]
 		}
 	}
