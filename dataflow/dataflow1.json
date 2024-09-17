@@ -13,7 +13,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "split1us"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          id as string,",
@@ -27,7 +31,9 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> sourcecopyingfromblob"
+				"     ignoreNoFilesFound: false) ~> sourcecopyingfromblob",
+				"sourcecopyingfromblob split(ERROR_FUNCTION(''),",
+				"     disjoint: false) ~> split1us@(us, )"
 			]
 		}
 	}
