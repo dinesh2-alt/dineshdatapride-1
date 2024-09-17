@@ -37,6 +37,9 @@
 				},
 				{
 					"name": "derivedColumn2"
+				},
+				{
+					"name": "aggregate1"
 				}
 			],
 			"scriptLines": [
@@ -56,8 +59,9 @@
 				"sourcecopyingfromblob split(equals(country, \"US\"),",
 				"     disjoint: false) ~> split1us@(us, uk)",
 				"split1us@us derive(FILENAME = \"us\") ~> derivedColumn1",
-				"split1us@uk derive() ~> derivedColumn2",
-				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"split1us@uk derive(FILENAME = \"UK\") ~> derivedColumn2",
+				"derivedColumn1 aggregate() ~> aggregate1",
+				"aggregate1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1us",
