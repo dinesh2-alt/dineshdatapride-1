@@ -31,6 +31,9 @@
 			"transformations": [
 				{
 					"name": "split1us"
+				},
+				{
+					"name": "derivedColumn1"
 				}
 			],
 			"scriptLines": [
@@ -49,7 +52,8 @@
 				"     ignoreNoFilesFound: false) ~> sourcecopyingfromblob",
 				"sourcecopyingfromblob split(equals(country, \"US\"),",
 				"     disjoint: false) ~> split1us@(us, uk)",
-				"split1us@us sink(allowSchemaDrift: true,",
+				"split1us@us derive(FILENAME = ERROR_FUNCTION('')) ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1us",
