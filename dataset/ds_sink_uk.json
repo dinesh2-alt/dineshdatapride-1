@@ -1,0 +1,23 @@
+{
+	"name": "ds_sink_uk",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lk_datasource2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "uk",
+				"container": "sinkcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
