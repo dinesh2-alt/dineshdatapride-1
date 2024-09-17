@@ -66,7 +66,7 @@
 				"derivedColumn1 aggregate(groupBy(city),",
 				"     EMPLOYEECOUNT = count(id)) ~> aggregate1",
 				"derivedColumn2 aggregate(groupBy(city),",
-				"     city = count(id)) ~> aggregate2",
+				"     emploteecount = count(id)) ~> aggregate2",
 				"aggregate1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
